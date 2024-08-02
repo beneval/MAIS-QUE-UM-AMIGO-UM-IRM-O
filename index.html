@@ -14,13 +14,22 @@
             align-items: center;
             height: 100vh;
             background-color: #0000FF; /* Azul claro */
-            color: #fff;
-            font-family: Arial, sans-serif;
+            color: #fff; /* Cor do texto geral */
+            font-family: Arial, sans-serif; /* Fonte geral */
+            text-align: center; /* Centraliza o texto */
         }
         video {
             max-width: 100%;
-            max-height: 80%; /* Ajuste o max-height para deixar espaço para o botão */
+            max-height: 60%; /* Ajuste o max-height para deixar espaço para a mensagem e o botão */
             border: 2px solid #fff; /* Borda branca */
+        }
+        .message-container {
+            margin-top: 20px;
+        }
+        .message-container p {
+            color: #FFD700; /* Cor do texto da mensagem */
+            font-family: 'Courier New', Courier, monospace; /* Fonte da mensagem */
+            font-size: 1.2em; /* Tamanho da fonte */
         }
         .button-container {
             margin-top: 20px;
@@ -35,9 +44,12 @@
 </head>
 <body>
     <video autoplay controls loop playsinline>
-        <source src="videok10.mp4" type="video/mp4">
+        <source src="vídeok10.mp4" type="video/mp4">
         Seu navegador não suporta o elemento de vídeo.
     </video>
+    <div class="message-container">
+        <p>Clique na logo abaixo e siga-nos no Instagram para mais novidades!</p>
+    </div>
     <div class="button-container">
         <a href="https://www.instagram.com/martins_2024/" class="instagram-button" target="_blank">
             <img src="logoinsta.webp" alt="Instagram Logo">
