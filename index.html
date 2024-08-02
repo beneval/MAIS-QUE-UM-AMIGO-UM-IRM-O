@@ -43,7 +43,7 @@
     </style>
 </head>
 <body>
-    <video id="meuVideo" autoplay controls loop playsinline>
+    <video id="meuVideo" autoplay muted playsinline controls loop>
         <source src="videok10.mp4" type="video/mp4">
         Seu navegador não suporta o elemento de vídeo.
     </video>
@@ -56,11 +56,14 @@
         </a>
     </div>
     <script>
-        // Força o vídeo a começar a reprodução
+        // Força o vídeo a começar a reprodução e depois ativa o som
         document.addEventListener('DOMContentLoaded', function() {
             const video = document.getElementById('meuVideo');
             if (video) {
-                video.play().catch(error => {
+                video.play().then(() => {
+                    // Após começar a reprodução, desmutar o vídeo
+                    video.muted = false;
+                }).catch(error => {
                     console.error('Erro ao tentar reproduzir o vídeo:', error);
                 });
             }
