@@ -35,7 +35,7 @@
     </style>
 </head>
 <body>
-    <video autoplay controls loop playsinline>
+    <video id="meuVideo" autoplay controls loop playsinline>
         <source src="vídeok10.mp4" type="video/mp4">
         Seu navegador não suporta o elemento de vídeo.
     </video>
@@ -44,5 +44,12 @@
             <img src="logoinsta.webp" alt="Instagram Logo">
         </a>
     </div>
+    <script>
+        // Verifique se o vídeo foi carregado corretamente
+        const video = document.getElementById('meuVideo');
+        video.addEventListener('error', (event) => {
+            console.error('Erro ao carregar o vídeo:', event);
+        });
+    </script>
 </body>
 </html>
