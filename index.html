@@ -14,9 +14,9 @@
             align-items: center;
             height: 100vh;
             background-color: #0000FF; /* Azul claro */
-            color: #fff; /* Cor do texto geral */
-            font-family: Arial, sans-serif; /* Fonte geral */
-            text-align: center; /* Centraliza o texto */
+            color: #fff;
+            font-family: Arial, sans-serif;
+            text-align: center;
         }
         video {
             max-width: 100%;
@@ -43,7 +43,7 @@
     </style>
 </head>
 <body>
-    <video autoplay controls loop playsinline>
+    <video id="meuVideo" autoplay muted controls loop playsinline>
         <source src="videok10.mp4" type="video/mp4">
         Seu navegador não suporta o elemento de vídeo.
     </video>
@@ -55,5 +55,16 @@
             <img src="logoinsta.webp" alt="Instagram Logo">
         </a>
     </div>
+    <script>
+        // Força o vídeo a começar a reprodução
+        document.addEventListener('DOMContentLoaded', function() {
+            const video = document.getElementById('meuVideo');
+            if (video) {
+                video.play().catch(error => {
+                    console.error('Erro ao tentar reproduzir o vídeo:', error);
+                });
+            }
+        });
+    </script>
 </body>
 </html>
