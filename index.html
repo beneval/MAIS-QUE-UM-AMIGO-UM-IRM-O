@@ -9,6 +9,7 @@
             margin: 0;
             padding: 0;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
@@ -18,15 +19,47 @@
         }
         video {
             max-width: 100%;
-            max-height: 100%;
+            max-height: 80%;
             border: 2px solid #fff; /* Borda branca */
+        }
+        .controls {
+            margin-top: 10px;
+        }
+        button {
+            background-color: #fff;
+            color: #000;
+            border: none;
+            padding: 10px;
+            margin: 5px;
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
-    <video autoplay playsinline>
-        <source src="Vídeo do WhatsApp de 2024-08-01 à(s) 19.34.28_64332ae7.mp4" type="video/mp4">
+    <video id="myVideo" autoplay playsinline>
+        <source src="novo-video.mp4" type="video/mp4"> <!-- Atualize o link aqui -->
         Seu navegador não suporta o elemento de vídeo.
     </video>
+    <div class="controls">
+        <button onclick="playVideo()">Play</button>
+        <button onclick="pauseVideo()">Pause</button>
+        <button onclick="restartVideo()">Restart</button>
+    </div>
+    <script>
+        const video = document.getElementById('myVideo');
+
+        function playVideo() {
+            video.play();
+        }
+
+        function pauseVideo() {
+            video.pause();
+        }
+
+        function restartVideo() {
+            video.currentTime = 0;
+            video.play();
+        }
+    </script>
 </body>
 </html>
