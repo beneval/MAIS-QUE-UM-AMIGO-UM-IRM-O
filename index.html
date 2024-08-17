@@ -60,6 +60,23 @@
         document.addEventListener('DOMContentLoaded', function() {
             const video = document.getElementById('meuVideo');
             
+            // Captura um frame do vídeo e define como imagem de pré-visualização
+            video.addEventListener('loadeddata', function() {
+                const canvas = document.createElement('canvas');
+                const context = canvas.getContext('2d');
+                
+                // Ajuste o tamanho do canvas para corresponder ao vídeo
+                canvas.width = video.videoWidth;
+                canvas.height = video.videoHeight;
+                
+                // Desenha o primeiro frame do vídeo no canvas
+                context.drawImage(video, 0, 0, canvas.width, canvas.height);
+                
+                // Converte o canvas em uma URL de imagem e define como a tela de capa
+                const imageUrl = canvas.toDataURL('image/jpeg');
+                video.setAttribute('poster', imageUrl);
+            });
+            
             // Garantir que o som esteja ativado ao dar play
             video.addEventListener('play', function() {
                 video.muted = false;
