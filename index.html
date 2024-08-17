@@ -40,21 +40,10 @@
             border: none;
             cursor: pointer;
         }
-        #soundButton {
-            display: none;
-            margin-top: 10px;
-            padding: 10px 20px;
-            background-color: #FFD700;
-            color: #000;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 1em;
-        }
     </style>
 </head>
 <body>
-    <video id="meuVideo" autoplay muted playsinline controls loop>
+    <video id="meuVideo" controls playsinline loop>
         <source src="alisson.mp4" type="video/mp4">
         Seu navegador não suporta o elemento de vídeo.
     </video>
@@ -66,26 +55,15 @@
             <img src="logoinsta.webp" alt="Instagram Logo">
         </a>
     </div>
-    <button id="soundButton" onclick="unmuteVideo()">Ativar Som</button>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const video = document.getElementById('meuVideo');
-            const soundButton = document.getElementById('soundButton');
-
-            video.play().then(() => {
-                console.log('Vídeo começou a reproduzir automaticamente.');
-            }).catch(error => {
-                console.error('Erro ao tentar reproduzir o vídeo:', error);
-                soundButton.style.display = 'block'; // Mostra o botão se o vídeo não iniciar automaticamente
+            
+            // Garantir que o som esteja ativado ao dar play
+            video.addEventListener('play', function() {
+                video.muted = false;
             });
         });
-
-        function unmuteVideo() {
-            const video = document.getElementById('meuVideo');
-            video.muted = false;
-            video.play();
-            document.getElementById('soundButton').style.display = 'none'; // Esconde o botão após ativar o som
-        }
     </script>
 </body>
 </html>
